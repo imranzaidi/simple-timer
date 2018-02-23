@@ -1,0 +1,8 @@
+/**
+ * Action Types
+ */
+export const INITIALIZE_COUNTER = 'INITIALIZE_COUNTER';
+export const START_COUNTDOWN = 'START_COUNTDOWN';
+export const STOP_COUNTDOWN = 'STOP_COUNTDOWN';
+export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
+export const RESET_COUNTER = 'RESET_COUNTER';
