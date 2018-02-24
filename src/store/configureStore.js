@@ -1,26 +1,22 @@
 import { createStore, compose, applyMiddleware } from 'redux'
 import { createLogger } from 'redux-logger'
-import DevTools from '../containers/DevTools'
 import rootReducer from '../reducers'
 
 const loggerMiddleware = createLogger(),
-  devToolsMiddleware = DevTools.instrument();
+  composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 let store;
 
 if (process.env.REACT_APP_ENV === 'development') {
   store = createStore(
     rootReducer,
-    compose(devToolsMiddleware),
-    applyMiddleware(loggerMiddleware)
+    composeEnhancers(applyMiddleware(loggerMiddleware)),
   );
 } else {
   store = createStore(
-    rootReducer,
-    compose(devToolsMiddleware)
+    rootReducer
   );
 }
-
 
 
 export default store
